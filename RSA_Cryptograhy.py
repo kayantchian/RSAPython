@@ -8,7 +8,7 @@ import sys
 class RSA_Calculator():
    def __init__(self):
       self.ascii,self.RSA,self.RSAN = [],[],[]
-      self.text,self.p,self.q,self.e,self.euler,self.d,self.n,self.C,self.tagN, self.CN= None,None,None,None,None,None,\
+      self.text,self.p,self.q,self.e,self.euler,self.d,self.n,self.C,self.tag, self.CN= None,None,None,None,None,None,\
                                                                                          None,None,None,None
        #MAIN
    def Main(self):
@@ -23,7 +23,7 @@ class RSA_Calculator():
                           '[1] ENCODE\n'
                           '[2] DECODE\n'
                           '>> ')
-      elif self.tag == '1':
+      if self.tag == '1':
          self.Ascii()
          self.Values()
          self.FunctionEuler()
