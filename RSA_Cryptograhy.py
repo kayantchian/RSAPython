@@ -13,6 +13,7 @@ class RSA_Calculator():
        #MAIN
    def Main(self):
       self.tag = input('\n  Choose \n'
+                          '[0] EXIT\n'
                           '[1] ENCODE\n'
                           '[2] DECODE\n'
                           '>> ')
@@ -23,7 +24,9 @@ class RSA_Calculator():
                           '[1] ENCODE\n'
                           '[2] DECODE\n'
                           '>> ')
-      if self.tag == '1':
+      if self.tag == '0':
+         sys.exit()
+      elif self.tag == '1':
          self.Ascii()
          self.Values()
          self.FunctionEuler()
@@ -31,11 +34,13 @@ class RSA_Calculator():
          self.D_Value()
          self.Keys()
          self.Encryptation()
+         self.Main()
       elif self.tag == '2':
          self.RSANumbers()
          self.DEValues()
          self.Decryptation()
          self.AsciiToText()
+         
            # ENCRYPTATION
    def Ascii(self):
       self.text = input('Text: ')
