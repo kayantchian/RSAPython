@@ -7,8 +7,8 @@ fique avontade para fazer seu request
 import sys
 class RSA_Calculator():
    def __init__(self):
-      self.ascii,self.RSA,self.RSAN = [],[],[]
-      self.text,self.p,self.q,self.e,self.euler,self.d,self.n,self.C,self.tag, self.CN= None,None,None,None,None,None,\
+      self.ascii,self.RSA = [],[]
+      self.text,self.p,self.q,self.e,self.euler,self.d,self.n,self.C,self.tag= None,None,None,None,None,\
                                                                                          None,None,None,None
        #MAIN
    def Main(self):
@@ -24,9 +24,7 @@ class RSA_Calculator():
                           '[1] ENCODE\n'
                           '[2] DECODE\n'
                           '>> ')
-      if self.tag == '0':
-         sys.exit()
-      elif self.tag == '1':
+      if self.tag == '1':
          self.Ascii()
          self.Values()
          self.FunctionEuler()
@@ -40,7 +38,7 @@ class RSA_Calculator():
          self.DEValues()
          self.Decryptation()
          self.AsciiToText()
-         
+         self.Main()
            # ENCRYPTATION
    def Ascii(self):
       self.text = input('Text: ')
@@ -106,23 +104,24 @@ class RSA_Calculator():
    def Encryptation(self):
       for i in self.ascii:
          self.RSA.append(pow(i,self.e,self.n))
+      self.RSA = str(self.RSA).strip('[]')
       print('   ENCRYPTED TEXT    ')
       print(self.RSA)
       print()
            #DECRYPTATION
    def RSANumbers(self):
-      self.CN = input('ENCRYPTED TEXT: ')
-      for string in self.CN.split(' '):
-         self.RSAN.append(string)
+      self.C = input('ENCRYPTED TEXT: ')
+      for string in self.C.split(' '):
+         self.RSA.append(string)
       print()
       print('   RSA ENCRYPTED TEXT: ')
-      print(self.RSAN)
+      print(self.RSA)
       print()
    def DEValues(self):
       self.d = int(input('D Value: '))
       self.n = int(input('Mod n Value: '))
    def Decryptation(self):
-      for char in self.RSAN:
+      for char in self.RSA:
          x = int(char)
          self.ascii.append(pow(x,self.d,self.n))
       print()
