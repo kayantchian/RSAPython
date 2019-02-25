@@ -53,7 +53,7 @@ class RSA_Calculator():
       for x in range(1,self.p+1):
          if (self.p% x) == 0:
             factors.append(x)
-            if len(factors) > 2:
+            if len(factors) > 2 or self.p/2 == 0:
                print('\nThe Value isn\'t Prime Number')
                self.p = int(input('P Value ( Prime Number ) :'))
             else:
@@ -62,7 +62,7 @@ class RSA_Calculator():
       for x in range(1,self.q+1):
          if (self.q% x) == 0:
             factors2.append(x)
-            if len(factors2) > 2:
+            if len(factors2) > 2 or self.q/2 == 0:
                print('\nThe Value isn\'t Prime Number')
                self.q = int(input('Q Value ( Prime Number ) :'))
             else:
